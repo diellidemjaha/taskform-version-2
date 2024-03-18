@@ -1,4 +1,4 @@
-# taskform-version-2
+# TaskForm v.2
 Application for task management and task tracking. Still on initial phase
 
 This project leverages a powerful tech stack combining MongoDB, Laravel, GraphQL, React, and Tailwind CSS to deliver a modern and efficient web application solution.
