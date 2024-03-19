@@ -18,9 +18,7 @@ type Query {
       name: String @where(operator: "like")
     ): [User!]! @paginate(defaultCount: 10)
     
-    "Find a single task by ID."
-    task(id: ID!): Task
-    "List multiple tasks."
+    task(id: ID!): Task  @find 
     tasks: [Task!]! @field(resolver: "App\\GraphQL\\Queries\\TaskQueries")
 }
 
@@ -56,7 +54,24 @@ type Task {
     task_description: String!
 }
 
+type AuthUserPayload {
+    token: String
+    user: User
+}
+
+type LogoutPayload {
+    message: String!
+}
+
+input LoginUserInput {
+  email: String!
+  password: String!
+}
+
 type Mutation {
+    registerUser(username: String!, email: String!, password: String!, role: String!, profile_picture: String!): User!
+    loginUser(email: String!, password: String!): AuthUserPayload
+     logoutUser: LogoutPayload!
     createUser(username: String!, password: String!, role: String!, profile_picture: String!): User!
     createTask(task_name: String!, category: String!, status: String!, completion_percentage: Int!, task_description: String!): Task!
 }

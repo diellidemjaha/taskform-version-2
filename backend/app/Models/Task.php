@@ -20,7 +20,6 @@ class Task extends Model
         'task_name',
         'category',
         'status',
-        'completion_percentage',
         'task_description',
     ];
 }
