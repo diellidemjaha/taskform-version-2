@@ -47,11 +47,12 @@ type User {
 
 type Task {
     _id: ID!
+    admin_id: ID
     task_name: String!
     category: String!
     status: String!
-    completion_percentage: Int!
     task_description: String!
+     end_date: String
 }
 
 type AuthUserPayload {
@@ -68,10 +69,23 @@ input LoginUserInput {
   password: String!
 }
 
+type DeleteTaskResponse {
+  message: String!
+}
+
+input TaskInput {
+  task_name: String
+  category: String
+  status: String
+  task_description: String
+  end_date: String
+}
+
 type Mutation {
     registerUser(username: String!, email: String!, password: String!, role: String!, profile_picture: String!): User!
     loginUser(email: String!, password: String!): AuthUserPayload
      logoutUser: LogoutPayload!
-    createUser(username: String!, password: String!, role: String!, profile_picture: String!): User!
-    createTask(task_name: String!, category: String!, status: String!, completion_percentage: Int!, task_description: String!): Task!
+    createTask(task_name: String!, category: String!, status: String!, task_description: String!, end_date: String): Task!
+     updateTask(id: ID!, input: TaskInput!): Task!
+     deleteTask(id: ID!): DeleteTaskResponse!
 }
