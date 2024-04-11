@@ -9,7 +9,7 @@ As a NoSQL database, MongoDB provides flexibility and scalability, making it ide
 ### Laravel: 
 A PHP web application framework renowned for its elegant syntax, Laravel offers robust features for building scalable and secure back-end systems, including authentication, routing, and database management.
 
-### GraphQL: 
+### GraphQL API: 
 GraphQL serves as a query language and runtime for APIs, enabling efficient data fetching with precise queries. Its declarative nature allows clients to request only the data they need, enhancing performance and reducing over-fetching.
 
 ### React: 
