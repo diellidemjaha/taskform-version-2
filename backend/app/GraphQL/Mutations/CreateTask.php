@@ -11,9 +11,7 @@ final readonly class CreateTask
     public function __invoke(null $_, array $args)
     {
         $user=auth('sanctum')->user();
-        // Check if the authenticated user has the 'admin' role
-        // if (Auth::check() && Auth::user()->hasRole('admin')) {
-            // If the user has 'admin' role, create the task
+   
             $taskData = [
                 'task_name' => $args['task_name'],
                 'category' => $args['category'],
@@ -25,9 +23,6 @@ final readonly class CreateTask
 
 
             return Task::create($taskData);
-        // } else {
-            // If the user doesn't have 'admin' role, throw an error or handle it accordingly
-            // throw new \Exception('Unauthorized. Only users with "admin" role can create tasks.');
-        }
-    // }
+     }
+
 }
